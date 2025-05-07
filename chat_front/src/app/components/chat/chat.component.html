@@ -26,14 +26,14 @@
     </div>
 
     <div class="input-area">
-      <input 
-        [(ngModel)]="newMsg" 
-        placeholder="Écrivez votre message ici..." 
+      <input
+        [(ngModel)]="newMsg"
+        placeholder="Écrivez votre message ici..."
         (keydown.enter)="send()"
         autofocus
       />
       <button (click)="send()">
-        <span class="send-icon">➤</span>
+        <span class="send-icon"> > </span>
       </button>
     </div>
   </div>

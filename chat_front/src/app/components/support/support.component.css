@@ -41,12 +41,12 @@ h2 {
   transition: box-shadow 0.2s, background 0.2s, transform 0.1s;
   border: 1px solid #e3eefd;
   position: relative;
-}
 
-.chat-card:hover {
-  background: #e9f3fb;
-  box-shadow: 0 4px 16px rgba(58,141,222,0.12);
-  transform: translateY(-2px) scale(1.02);
+  &:hover {
+    background: #e9f3fb;
+    box-shadow: 0 4px 16px rgba(58,141,222,0.12);
+    transform: translateY(-2px) scale(1.02);
+  }
 }
 
 .chat-avatar {

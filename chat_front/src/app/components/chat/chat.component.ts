@@ -1,15 +1,15 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
-import { DatePipe, NgClass, NgForOf } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { ChatWebsocketService } from '../../services/chat-websocket.service';
-import { filter } from 'rxjs/operators';
-import { ChatHttpService } from '../../services/chat-http.service';
+import {ActivatedRoute} from '@angular/router';
+import {DatePipe, NgClass, NgForOf, NgIf} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {ChatWebsocketService} from '../../services/chat-websocket.service';
+import {filter} from 'rxjs/operators';
+import {ChatHttpService} from '../../services/chat-http.service';
 
 @Component({
   selector: 'app-chat',
-  imports: [NgClass, FormsModule, NgForOf, DatePipe],
+  imports: [NgClass, FormsModule, NgForOf, DatePipe, NgIf],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
@@ -23,8 +23,8 @@ export class ChatComponent implements OnInit, OnDestroy {
     private chatWs: ChatWebsocketService,
     private chatHttp: ChatHttpService,
     private route: ActivatedRoute
-  ) { }
-
+  ) {
+  }
 
   ngOnInit() {
     const nav = window.history.state;
@@ -33,8 +33,9 @@ export class ChatComponent implements OnInit, OnDestroy {
     } else {
       this.role = 'user';
     }
+
     this.route.paramMap.subscribe(params => {
-      const chatId = params.get('id');
+      const chatId: string | null = params.get('id');
       if (chatId) {
         this.chatId = chatId;
         this.chatHttp.getMessages(this.chatId).subscribe(messages => {
@@ -69,15 +70,13 @@ export class ChatComponent implements OnInit, OnDestroy {
     };
 
     this.chatHttp.saveMessage(this.chatId, msg).subscribe();
-    // Ne pas ajouter manuellement le message ici
-    // Il sera ajouté automatiquement via WebSocket
     this.chatWs.sendMessage(this.chatId, msg);
     this.newMsg = '';
     setTimeout(() => this.scrollToBottom(), 100);
   }
 
   scrollToBottom() {
-    const container = document.querySelector('.messages');
+    const container: Element | null = document.querySelector('.messages');
     if (container) {
       container.scrollTop = container.scrollHeight;
     }

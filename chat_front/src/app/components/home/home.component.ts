@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChatService } from '../chat/chat.service';
-import { RouterLink } from '@angular/router';
-import { NgIf, NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, NgOptimizedImage, NgIf],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
