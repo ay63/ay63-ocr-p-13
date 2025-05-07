@@ -7,7 +7,7 @@ export class ChatHttpService {
   constructor(private http: HttpClient) {}
 
   createChat(): Observable<any> {
-    return this.http.post('/chat', {});
+    return this.http.post('/api/chats', {});
   }
 
   getMessages(chatId: string): Observable<any[]> {

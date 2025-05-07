@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChatService } from '../chat/chat.service';
+import {ChatHttpService} from '../../services/chat-http.service';
+
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,10 @@ import { ChatService } from '../chat/chat.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  constructor(private chatService: ChatService, private router: Router) {}
+  constructor(private chatHttpService: ChatHttpService, private router: Router) {}
 
   openChat() {
-    this.chatService.createChat().subscribe({
+    this.chatHttpService.createChat().subscribe({
       next: (chat: any) => {
         if (chat && chat.id) {
           this.router.navigate(['/chat', chat.id]);
