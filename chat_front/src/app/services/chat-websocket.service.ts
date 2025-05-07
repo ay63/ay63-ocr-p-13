@@ -1,0 +1,43 @@
+import { Injectable } from '@angular/core';
+import { Client, IMessage, Stomp } from '@stomp/stompjs';
+import SockJS from 'sockjs-client';
+import { BehaviorSubject, Observable } from 'rxjs';
+
+@Injectable({ providedIn: 'root' })
+export class ChatWebsocketService {
+  private stompClient: Client | null = null;
+  private messagesSubject = new BehaviorSubject<any>(null);
+  public messages$: Observable<any> = this.messagesSubject.asObservable();
+
+  connect(chatId: string) {
+    this.stompClient = Stomp.over(() => new SockJS('/websocket'));
+    this.stompClient.onConnect = () => {
+      console.log('WebSocket connecté !');
+      this.stompClient?.subscribe(
+        `/support/${chatId}`,
+        (message: IMessage) => {
+          if (message.body) {
+            console.log('Message reçu via WebSocket:', message.body); 
+            this.messagesSubject.next(JSON.parse(message.body));
+          }
+        }
+      );
+    };
+    this.stompClient.activate();
+  }
+
+  sendMessage(chatId: string, msg: any) {
+    console.log('sendMessage called, connected:', this.stompClient?.connected);
+    if (this.stompClient && this.stompClient.connected) {
+      this.stompClient.publish({
+        destination: `/app/support/${chatId}`,
+        body: JSON.stringify(msg),
+      });
+    }
+  }
+
+  disconnect() {
+    this.stompClient?.onWebSocketClose(() => {});
+    this.stompClient = null;
+  }
+}

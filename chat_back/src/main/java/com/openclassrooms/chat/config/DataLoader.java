@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import com.openclassrooms.chat.entity.Client;
 import com.openclassrooms.chat.entity.Support;
-import com.openclassrooms.chat.repository.ChannelRepository;
 import com.openclassrooms.chat.repository.ClientRepository;
 import com.openclassrooms.chat.repository.SupportRepository;
 
@@ -14,12 +13,10 @@ import com.openclassrooms.chat.repository.SupportRepository;
 public class DataLoader implements ApplicationRunner {
 
 	private ClientRepository clientRepository;
-	private ChannelRepository channelRepository;
 	private SupportRepository supportRepository;
 
-    public DataLoader(ClientRepository clientRepository, ChannelRepository channelRepository, SupportRepository supportRepository) {
+    public DataLoader(ClientRepository clientRepository,  SupportRepository supportRepository) {
         this.clientRepository = clientRepository;
-        this.channelRepository = channelRepository;
         this.supportRepository = supportRepository;
     }
 
@@ -28,7 +25,6 @@ public class DataLoader implements ApplicationRunner {
         
         System.out.println("Deleting all clients and supports");
 		clientRepository.deleteAll();
-		channelRepository.deleteAll();
 		supportRepository.deleteAll();
         System.out.println("End delete all clients and supports");
 
