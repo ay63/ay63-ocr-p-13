@@ -5,36 +5,31 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import com.openclassrooms.chat.entity.Client;
-import com.openclassrooms.chat.entity.Support;
+import com.openclassrooms.chat.repository.ChatRepository;
 import com.openclassrooms.chat.repository.ClientRepository;
-import com.openclassrooms.chat.repository.SupportRepository;
 
 @Component
 public class DataLoader implements ApplicationRunner {
 
 	private ClientRepository clientRepository;
-	private SupportRepository supportRepository;
+	private ChatRepository chatRepository;
 
-    public DataLoader(ClientRepository clientRepository,  SupportRepository supportRepository) {
+    public DataLoader(ClientRepository clientRepository, ChatRepository chatRepository) {
         this.clientRepository = clientRepository;
-        this.supportRepository = supportRepository;
+        this.chatRepository = chatRepository;
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         
-        System.out.println("Deleting all clients and supports");
+        System.out.println("Deleting all clients and chats");
 		clientRepository.deleteAll();
-		supportRepository.deleteAll();
-        System.out.println("End delete all clients and supports");
+		chatRepository.deleteAll();
+        System.out.println("End delete all clients and chats");
 
-		System.out.println("Inserting clients and supports");
+		System.out.println("Inserting clients ");
 		Client client = new Client("john_doe", "John", "Doe", "john.doo@gmail.com","1234");
-		Support support = new Support("jane_doe", "Jane", "Doe", "jane_doe@gmail.com","1234");
-
 		clientRepository.save(client);	
-		supportRepository.save(support);
-		
-		System.out.println("End insert clients and supports");
+		System.out.println("End insert clients");
     }
 }
