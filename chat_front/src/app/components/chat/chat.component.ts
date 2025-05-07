@@ -48,7 +48,6 @@ export class ChatComponent implements OnInit, OnDestroy {
             filter(msg => !!msg)
           )
           .subscribe((msg: any) => {
-            console.log('Message reçu dans le composant:', msg);
             this.messages.push(msg);
             setTimeout(() => this.scrollToBottom(), 100);
           });

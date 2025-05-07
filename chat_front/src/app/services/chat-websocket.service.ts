@@ -12,12 +12,10 @@ export class ChatWebsocketService {
   connect(chatId: string) {
     this.stompClient = Stomp.over(() => new SockJS('/websocket'));
     this.stompClient.onConnect = () => {
-      console.log('WebSocket connecté !');
       this.stompClient?.subscribe(
         `/support/${chatId}`,
         (message: IMessage) => {
           if (message.body) {
-            console.log('Message reçu via WebSocket:', message.body); 
             this.messagesSubject.next(JSON.parse(message.body));
           }
         }
@@ -27,7 +25,6 @@ export class ChatWebsocketService {
   }
 
   sendMessage(chatId: string, msg: any) {
-    console.log('sendMessage called, connected:', this.stompClient?.connected);
     if (this.stompClient && this.stompClient.connected) {
       this.stompClient.publish({
         destination: `/app/support/${chatId}`,
