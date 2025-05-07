@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {ChatWebsocketService} from '../../services/chat-websocket.service';
 import {filter} from 'rxjs/operators';
 import {ChatHttpService} from '../../services/chat-http.service';
+import {Message} from '../../modele/Message';
 
 @Component({
   selector: 'app-chat',
@@ -14,7 +15,7 @@ import {ChatHttpService} from '../../services/chat-http.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit, OnDestroy {
-  messages: any[] = [];
+  messages: Message[] = [];
   newMsg: string = '';
   role: string = 'user';
   chatId: string = '';
