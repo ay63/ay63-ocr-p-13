@@ -9,7 +9,5 @@ import com.openclassrooms.chat.entity.Chat;
 public interface ChatRepository extends MongoRepository<Chat, String> {
 
     Optional<Chat> findById(String id);
-    Chat findByCreatedAt(String createdAt);
-    Chat findByMessages(String messages);
- 
+
 }

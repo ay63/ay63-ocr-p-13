@@ -24,7 +24,7 @@ public class Chat {
     private String id;
     private Date createdAt;
     @DBRef
-    private Client client;
+    private Customer customer;
     private List<Message> messages = new ArrayList<>();
     
 }

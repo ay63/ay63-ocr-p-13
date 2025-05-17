@@ -1,5 +1,8 @@
 <main>
   <section>
+    @if (chats.length == 0) {
+    <h2>Aucun chat client ouvert</h2>
+    }@else{
     <h2>Liste des chats</h2>
     <div class="chat-list">
       <div class="chat-card" *ngFor="let chat of chats" (click)="openChat(chat.id)">
@@ -19,5 +22,6 @@
         <div class="chat-arrow">→</div>
       </div>
     </div>
+    }
   </section>
 </main>
