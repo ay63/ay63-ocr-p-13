@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="messages">
+    <div class="messages" [ngClass]="[role === 'support' ? 'support' : 'user']">
       <div *ngIf="messages.length === 0" class="empty-chat">
         <div class="empty-chat-icon">💬</div>
         <p>Commencez la conversation en envoyant un message...</p>

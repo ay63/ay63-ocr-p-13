@@ -67,14 +67,27 @@
   background-color: #f8fafc;
 }
 
-.message.user {
-  align-self: flex-end;
-  align-items: flex-end;
+.messages.support{
+  .message.user {
+    align-self: flex-start;
+    align-items: flex-start;
+  }
+  .message.support {
+    align-self: flex-end;
+    align-items: flex-end;
+  }
 }
 
-.message.support {
-  align-self: flex-start;
-  align-items: flex-start;
+.messages.user{
+  
+  .message.user {
+    align-self: flex-end;
+    align-items: flex-end;
+  }
+  .message.support {
+    align-self: flex-start;
+    align-items: flex-start;
+  }
 }
 
 .message-content {
