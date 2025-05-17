@@ -4,17 +4,17 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import com.openclassrooms.chat.entity.Customer;
+import com.openclassrooms.chat.entity.Client;
 import com.openclassrooms.chat.repository.ChatRepository;
-import com.openclassrooms.chat.repository.CustomerRepository;
+import com.openclassrooms.chat.repository.ClientRepository;
 
 @Component
 public class DataLoader implements ApplicationRunner {
 
-	private CustomerRepository clientRepository;
+	private ClientRepository clientRepository;
 	private ChatRepository chatRepository;
 
-    public DataLoader(CustomerRepository clientRepository, ChatRepository chatRepository) {
+    public DataLoader(ClientRepository clientRepository, ChatRepository chatRepository) {
         this.clientRepository = clientRepository;
         this.chatRepository = chatRepository;
     }
@@ -28,8 +28,8 @@ public class DataLoader implements ApplicationRunner {
         System.out.println("End delete all clients and chats");
 
 		System.out.println("Inserting clients ");
-		Customer customer = new Customer("john_doe", "John", "Doe", "john.doo@gmail.com");
-		clientRepository.save(customer);	
+		Client client = new Client("john_doe", "John", "Doe", "john.doo@gmail.com","1234");
+		clientRepository.save(client);	
 		System.out.println("End insert clients");
     }
 }

@@ -9,18 +9,18 @@ export class ChatHttpService {
   constructor(private http: HttpClient) {}
 
   createChat(): Observable<Chat> {
-    return this.http.post<Chat>('/api/chat', {});
+    return this.http.post<Chat>('/api/chats', {});
   }
 
   getMessages(chatId: string): Observable<Message[]> {
-    return this.http.get<Message[]>(`/chat/${chatId}`);
+    return this.http.get<Message[]>(`/chats/${chatId}`);
   }
 
   saveMessage(chatId: string, message: Message): Observable<any> {
-    return this.http.post(`/chat/${chatId}/messages`, message);
+    return this.http.post(`/chats/${chatId}/messages`, message);
   }
 
   getAllChats(): Observable<Message[]> {
-    return this.http.get<Message[]>(`/chat`);
+    return this.http.get<Message[]>(`/chats`);
   }
 }

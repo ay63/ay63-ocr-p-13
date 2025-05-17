@@ -13,7 +13,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Document(collection = "chat")
+@Document(collection = "chats")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,7 +24,7 @@ public class Chat {
     private String id;
     private Date createdAt;
     @DBRef
-    private Customer customer;
+    private Client client;
     private List<Message> messages = new ArrayList<>();
     
 }

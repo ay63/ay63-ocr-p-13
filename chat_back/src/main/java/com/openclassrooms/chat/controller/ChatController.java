@@ -1,7 +1,11 @@
 package com.openclassrooms.chat.controller;
 
 import java.util.List;
+import java.util.Date;
 
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.openclassrooms.chat.entity.Chat;
-import com.openclassrooms.chat.entity.Customer;
+import com.openclassrooms.chat.entity.Client;
 import com.openclassrooms.chat.entity.Message;
 import com.openclassrooms.chat.repository.ChatRepository;
-import com.openclassrooms.chat.repository.CustomerRepository;
+import com.openclassrooms.chat.repository.ClientRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -22,9 +26,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class ChatController {
 
     private final ChatRepository chatRepository;
-    private final CustomerRepository clientRepository;
+    private final ClientRepository clientRepository;
 
-    public ChatController(ChatRepository chatRepository, CustomerRepository clientRepository) {
+    public ChatController(ChatRepository chatRepository, ClientRepository clientRepository) {
         this.chatRepository = chatRepository;
         this.clientRepository = clientRepository;
     }
@@ -32,14 +36,14 @@ public class ChatController {
 
     @PostMapping
     public Chat createChat() {
-        Customer customer = clientRepository.findByEmail("john.doo@gmail.com").orElse(null);
-        if (customer == null) {
-            customer = new Customer("john_doe", "John", "Doe", "john.doo@gmail.com");
-            clientRepository.save(customer);
+        Client client = clientRepository.findByUsername("john_doe").orElse(null);
+        if (client == null) {
+            client = new Client("john_doe", "John", "Doe", "john.doo@gmail.com","1234");
+            clientRepository.save(client);
         }
 
         Chat chat = new Chat();
-        chat.setCustomer(customer);
+        chat.setClient(client);
         chat.setCreatedAt(new java.util.Date());        
 
         return chatRepository.save(chat);

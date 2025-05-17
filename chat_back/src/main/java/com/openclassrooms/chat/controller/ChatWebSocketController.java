@@ -22,10 +22,11 @@ public class ChatWebSocketController {
     @MessageMapping("/support/{chatId}")
     @SendTo("/support/{chatId}")
     public Message sendMessageToSupport(@PathVariable String chatId, @Payload Message message) throws Exception {
-        Chat chat = chatRepository.findById(chatId).orElseThrow(() -> new RuntimeException("Chat not found"));
-        chat.getMessages().add(message);
-        chatRepository.save(chat);
-
+        Chat chat = chatRepository.findById(chatId).orElse(null);
+        if (chat != null) {
+            chat.getMessages().add(message);
+            chatRepository.save(chat);
+        }
         return message;
     }
 }
