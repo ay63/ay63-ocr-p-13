@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @CrossOrigin(originPatterns = "*", allowCredentials = "true")
-@RequestMapping("/chat")
+@RequestMapping("/chats")
 public class ChatController {
 
     private final ChatRepository chatRepository;
