@@ -13,6 +13,8 @@ This projet is POC a chat support
   - MongoDB 
   - Spring Websocket 
   
+ ## Clone the project 
+ > git clone https://github.com/ay63/ay63-ocr-p-13.git
 
 ## Frontend
 
