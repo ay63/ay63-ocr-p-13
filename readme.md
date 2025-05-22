@@ -70,7 +70,7 @@ The backend will be available at `http://localhost:8080`.
 
 ### Using the dump
 
-To restore the `ycyw` MongoDB database, run the following command in the `database` folder:
+To restore the `ycyw` MongoDB database, run the following command in the `resources/database` folder:
 
 ```bash
 mongorestore dump
@@ -78,7 +78,7 @@ mongorestore dump
 
 ### Manual import
 
-Alternatively, you can create the `ycyw` database and import the JSON collection located in `database/collections`.
+Alternatively, you can create the `ycyw` database and import the JSON collection located in `resources/database/collections`.
 
 ## How to Use the POC
 

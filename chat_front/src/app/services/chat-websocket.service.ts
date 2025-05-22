@@ -7,8 +7,8 @@ import {Message} from '../modele/Message';
 @Injectable({ providedIn: 'root' })
 export class ChatWebsocketService {
   private stompClient: Client | null = null;
-  private messagesSubject = new BehaviorSubject<any>(null);
-  public messages$: Observable<IMessage> = this.messagesSubject.asObservable();
+  private messagesSubject = new BehaviorSubject<Message | null>(null);
+  public messages$: Observable<Message | null> = this.messagesSubject.asObservable();
 
   connect(chatId: string) {
     this.stompClient = Stomp.over(() => new SockJS('/websocket'));

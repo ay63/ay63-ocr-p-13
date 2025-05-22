@@ -17,8 +17,8 @@ export class ChatHttpService {
     return this.http.get<Message[]>(`/chat-support/${chatId}`);
   }
 
-  saveMessage(chatId: string, message: Message): Observable<any> {
-    return this.http.post(`/chat-support/${chatId}/messages`, message);
+  saveMessage(chatId: string, message: Message): Observable<Message> {
+    return this.http.post<Message>(`/chat-support/${chatId}/messages`, message);
   }
 
   getAllChats(): Observable<Chats[]> {
