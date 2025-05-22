@@ -1,0 +1,41 @@
+<div class="chat-page">
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="chat-title">
+        <h2>Conversation #{{chatId}}</h2>
+        <span class="chat-status">En ligne</span>
+      </div>
+      <div class="user-info">
+        <span class="user-role">{{role === 'support' ? 'Support' : 'Client'}}</span>
+      </div>
+    </div>
+
+    <div class="messages" [ngClass]="[role === 'support' ? 'support' : 'user']">
+      <div *ngIf="messages.length === 0" class="empty-chat">
+        <div class="empty-chat-icon">💬</div>
+        <p>Commencez la conversation en envoyant un message...</p>
+      </div>
+      <div *ngFor="let msg of messages" [ngClass]="['message', msg.sender]">
+        <div class="message-content">
+          {{ msg.content }}
+        </div>
+        <div class="message-timestamp" *ngIf="msg.timestamp">
+          {{ msg.timestamp | date:'HH:mm' }}
+        </div>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <input
+        [(ngModel)]="newMsg"
+        placeholder="Écrivez votre message ici..."
+        (keydown.enter)="send()"
+        autofocus
+      />
+      <button (click)="send()">
+        <span class="send-icon"> > </span>
+      </button>
+    </div>
+  </div>
+</div>
+

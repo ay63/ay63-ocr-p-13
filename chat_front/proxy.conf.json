@@ -1,0 +1,23 @@
+{
+  "/api": {
+    "target": "http://localhost:8080", 
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/chat-support": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "pathRewrite": { "^/chat-support": "/api/chat-support" }
+  },
+"/websocket": {
+  "target": "http://localhost:8080",
+  "ws": true,
+  "secure": false,
+  "pathRewrite": { "^/websocket": "/api/websocket" }
+},
+"/websocket/info": {
+  "target": "http://localhost:8080",
+  "secure": false,
+  "pathRewrite": { "^/websocket/info": "/api/websocket/info" }
+}
+}

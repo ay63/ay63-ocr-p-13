@@ -1,0 +1,13 @@
+main{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p{
+    display: flex;
+    font-size: 64px;
+    color: #DA1212;
+  }
+}

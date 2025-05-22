@@ -1,0 +1,110 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f9fb;
+  min-height: 100vh;
+}
+
+section {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  margin-top: 2rem;
+  min-width: 350px;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #2d3a4b;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.chat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.chat-card {
+  display: flex;
+  align-items: center;
+  background: #f3f8fd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(58,141,222,0.06);
+  padding: 1.1rem 1.4rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s, transform 0.1s;
+  border: 1px solid #e3eefd;
+  position: relative;
+
+  &:hover {
+    background: #e9f3fb;
+    box-shadow: 0 4px 16px rgba(58,141,222,0.12);
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #3a8dde 60%, #6dd5fa 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-right: 1.1rem;
+  box-shadow: 0 2px 8px rgba(58,141,222,0.09);
+}
+
+.chat-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chat-id {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #285b8f;
+  margin-bottom: 0.5rem;
+}
+
+.customer-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: #5a7ca0;
+  margin-bottom: 0.5rem;
+}
+
+.customer-name, .customer-email {
+  margin-bottom: 0.2rem;
+}
+
+.chat-date {
+  font-size: 0.8rem;
+  color: #8ca2bb;
+  font-style: italic;
+}
+
+.chat-arrow {
+  font-size: 1.5rem;
+  color: #3a8dde;
+  margin-left: 1rem;
+  opacity: 0.7;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.chat-card:hover .chat-arrow {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
