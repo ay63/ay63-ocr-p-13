@@ -82,7 +82,7 @@ Alternatively, you can create the `ycyw` database and import the JSON collection
 
 ## How to Use the POC
 
-### As a client
+### As an client
 
 1. Open your browser and go to `http://localhost:4200/`.
 
@@ -94,7 +94,7 @@ Alternatively, you can create the `ycyw` database and import the JSON collection
 
    ![Client chat](./resources/images/chat_client.png)
 
-### As support
+### As an support employee
 
 1. Open your browser and go to `http://localhost:4200/support`.
 
