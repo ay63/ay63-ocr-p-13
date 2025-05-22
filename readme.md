@@ -57,6 +57,14 @@ The app will be available at `http://localhost:8080`.
 
 ## Database  
 
+### Use the dump
+
+To import MongoDB `ycyw` database use that command in folder database
+> mongorestore dump
+
+### Import manually 
+
+You can also create databases `ycyw` and import the json collection in folder `database/collections`
 
 ## How to use the POC 
 

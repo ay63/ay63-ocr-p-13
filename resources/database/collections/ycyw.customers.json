@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "682f25cd10f7723e6faab287"
+  },
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doo@gmail.com",
+  "_class": "com.openclassrooms.chat.entity.Customer"
+}]

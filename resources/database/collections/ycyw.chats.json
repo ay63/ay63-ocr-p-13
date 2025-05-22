@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "682f25d810f7723e6faab288"
+  },
+  "createdAt": {
+    "$date": "2025-05-22T13:25:44.944Z"
+  },
+  "customer": {
+    "$ref": "customers",
+    "$id": {
+      "$oid": "682f25cd10f7723e6faab287"
+    }
+  },
+  "messages": [
+    {
+      "sender": "user",
+      "content": "Bonjour, j’ai un souci avec le véhicule que je viens de récupérer à l’agence de Paris-Charles de Gaulle. J’avais réservé une Citroën C3 pour une semaine, mais le véhicule disponible a le système GPS qui ne démarre pas et le voyant de pression des pneus reste allumé en continu. Je dois prendre la route dans quelques heures et je crains de ne pas être en sécurité. Pouvez-vous m’aider ?",
+      "timestamp": {
+        "$date": "2025-05-22T13:26:05.157Z"
+      }
+    },
+    {
+      "sender": "support",
+      "content": "Bonjour Monsieur Doe, je suis vraiment désolée pour ces désagréments.",
+      "timestamp": {
+        "$date": "2025-05-22T13:26:15.457Z"
+      }
+    },
+    {
+      "sender": "support",
+      "content": "Pour régler cela au plus vite, je vous propose deux options : 1️⃣ Échange immédiat : une Citroën C3 de remplacement (ou équivalent) vous attend dès maintenant à l’agence de Paris-CDG, sans frais supplémentaires. 2️⃣ Intervention sur place : j’envoie un technicien en agence pour réparer le GPS et recalibrer les capteurs de pression, gratuitement.",
+      "timestamp": {
+        "$date": "2025-05-22T13:26:20.293Z"
+      }
+    }
+  ],
+  "_class": "com.openclassrooms.chat.entity.Chat"
+}]
