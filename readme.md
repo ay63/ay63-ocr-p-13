@@ -1,91 +1,105 @@
-# Your Car Your Way chat POC
+# Your Car, Your Way Chat POC
 
 ## Description
-This projet is POC a chat support 
+
+This project is a proof of concept (POC) for a chat support application.
 
 ## Prerequisites
-- **Frontend**:
-  - Angular  `19.1.0`
-  
-- **Backend**:
-  - Spring boot `3.4.3` 
-  - Java `21`
-  - MongoDB 
-  - Spring Websocket 
-  
- ## Clone the project 
- > git clone https://github.com/ay63/ay63-ocr-p-13.git
 
+* **Frontend**:
+
+  * Angular `19.1.0`
+
+* **Backend**:
+
+  * Spring Boot `3.4.3`
+  * Java `21`
+  * MongoDB
+  * Spring WebSocket
+
+ ## Clone the project 
+
+```bash
+git clone https://github.com/ay63/ay63-ocr-p-13.git
+```
 ## Frontend
 
-### Installation Frontend 
+### Installation
 
-Navigate to the `chat_front` folder
-```
-cd chat_front
-```
-Run to install dependencies
-``` 
-npm install
-``` 
+1. Navigate to the `chat_front` folder:
 
-Start the application with
-``` 
-npm run start
-``` 
+   ```bash
+   cd chat_front
+   ```
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+3. Start the application:
+
+   ```bash
+   npm run start
+   ```
 
 The app will be available at `http://localhost:4200`.
 
+## Backend
 
-### Installation Backend
+### Installation
 
-Navigate to the `chat_back` folder
+1. Navigate to the `chat_back` folder:
+
+   ```bash
+   cd chat_back
+   ```
+2. Build the project:
+
+   ```bash
+   mvn clean install
+   ```
+3. Start the application:
+
+   ```bash
+   mvn spring-boot:run
+   ```
+
+The backend will be available at `http://localhost:8080`.
+
+## Database
+
+### Using the dump
+
+To restore the `ycyw` MongoDB database, run the following command in the `database` folder:
+
+```bash
+mongorestore dump
 ```
-cd back
-```
 
-### Install
-```
-mvn clean install
-```
+### Manual import
 
-### Start Backend
-Start the application with
-``` 
-mvn spring-boot:run
-``` 
+Alternatively, you can create the `ycyw` database and import the JSON collection located in `database/collections`.
 
-The app will be available at `http://localhost:8080`.
+## How to Use the POC
 
-## Database  
+### As a client
 
-### Use the dump
+1. Open your browser and go to `http://localhost:4200/`.
 
-To import MongoDB `ycyw` database use that command in folder database
-> mongorestore dump
+   ![Client home page](./resources/images/chat_client_home.png)
 
-### Import manually 
+2. Click on **Démarrer une conversation**.
 
-You can also create databases `ycyw` and import the json collection in folder `database/collections`
+   You will be redirected to the client chat interface:
 
-## How to use the POC 
+   ![Client chat](./resources/images/chat_client.png)
 
-### As client 
-> Go at `http://localhost:4200/` 
+### As support
 
-![client home page](./resources/images/chat_client_home.png)
+1. Open your browser and go to `http://localhost:4200/support`.
 
-> Click on "Démarrer une conversation"
+   ![Support list](./resources/images/chat_support_list.png)
 
-You will be redirect to the client chat : 
-![client chat](./resources/images/chat_client.png)
+2. Click on **Démarrer une conversation** to access the support chat page:
 
-### As support 
-
-> Go at `http://localhost:4200/support` 
-
-![client chat](./resources/images/chat_support_list.png)
-
-> Then click use chat and you will be redicted to chat page
-
-![client chat](./resources/images/chat_support_page.png)
+   ![Support chat page](./resources/images/chat_support_page.png)
