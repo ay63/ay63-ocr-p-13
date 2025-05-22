@@ -48,7 +48,7 @@ export class ChatComponent implements OnInit, OnDestroy {
           .pipe(
             filter(msg => !!msg)
           )
-          .subscribe((msg: any) => {
+          .subscribe((msg: Message) => {
             this.messages.push(msg);
             setTimeout(() => this.scrollToBottom(), 100);
           });
