@@ -35,7 +35,7 @@ public class ChatController {
     public Chat createChat() {
         Customer customer = customerRepository.findByEmail("john.doo@gmail.com").orElse(null);
         if (customer == null) {
-            customer = new Customer("john_doe", "John", "Doe", "john.doo@gmail.com");
+            customer = new Customer(null,"John", "Doe", "john.doo@gmail.com");
             customerRepository.save(customer);
         }
 

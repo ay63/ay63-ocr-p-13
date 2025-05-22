@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChatHttpService } from '../../services/chat-http.service';
 import { NgForOf, NgIf, DatePipe } from '@angular/common';
+import { Chats } from '../../modele/Chats';
 
 @Component({
   selector: 'app-support',
@@ -11,7 +12,7 @@ import { NgForOf, NgIf, DatePipe } from '@angular/common';
   styleUrls: ['./support.component.css']
 })
 export class SupportComponent implements OnInit {
-  chats: any[] = [];
+  chats: Chats[] = [];
 
   constructor(private chatHttp: ChatHttpService, private router: Router) { }
 

@@ -11,9 +11,9 @@
         </div>
         <div class="chat-info">
           <span class="chat-id">Chat #{{chat.id}}</span>
-          <div class="client-info" *ngIf="chat.client">
-            <span class="client-name">Client: {{chat.client.firstName}} {{chat.client.lastName}}</span>
-            <span class="client-email">Email: {{chat.client.email}}</span>
+          <div class="customer-info " *ngIf="chat.customer">
+            <span class="customer-name">Client: {{chat.customer.firstName}} {{chat.customer.lastName}}</span>
+            <span class="customer-email">Email: {{chat.customer.email}}</span>
           </div>
           <div class="chat-date" *ngIf="chat.createdAt">
             <span>Créé le: {{chat.createdAt | date:'dd/MM/yyyy HH:mm'}}</span>

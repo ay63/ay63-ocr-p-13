@@ -1,10 +1,10 @@
-import {Client} from './Client';
+import {Customer} from './Customer';
 import {Message} from './Message';
 
 export interface Chat {
   id: string;
   createdAt: string;
-  client: Client;
+  customer: Customer;
   messages: Message[];
 }
 

@@ -28,7 +28,7 @@ public class DataLoader implements ApplicationRunner {
         System.out.println("End delete all clients and chats");
 
 		System.out.println("Inserting clients ");
-		Customer customer = new Customer("john_doe", "John", "Doe", "john.doo@gmail.com");
+		Customer customer = new Customer(null, "John", "Doe", "john.doo@gmail.com");
 		clientRepository.save(customer);	
 		System.out.println("End insert clients");
     }
