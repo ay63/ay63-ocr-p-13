@@ -58,9 +58,9 @@ The app will be available at `http://localhost:8080`.
 ## Database  
 
 
-How to use the POC 
+## How to use the POC 
 
-# As client 
+### As client 
 > Go at `http://localhost:4200/` 
 
 ![client home page](./resources/images/chat_client_home.png)
@@ -69,7 +69,8 @@ How to use the POC
 
 You will be redirect to the client chat : 
 ![client chat](./resources/images/chat_client.png)
-# As support 
+
+### As support 
 
 > Go at `http://localhost:4200/support` 
 
