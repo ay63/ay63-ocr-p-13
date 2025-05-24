@@ -100,6 +100,6 @@ Alternatively, you can create the `ycyw` database and import the JSON collection
 
    ![Support list](./resources/images/chat_support_list.png)
 
-2. Click on **Démarrer une conversation** to access the support chat page:
+2. Click on a chat in the list to access the support chat page :
 
    ![Support chat page](./resources/images/chat_support_page.png)
