@@ -70,29 +70,38 @@ The backend will be available at `http://localhost:8080`.
 
 ### Using the dump
 
-To restore the `ycyw` MongoDB database, run the following command in the `resources/database` folder:
+To restore the `ycyw` MongoDB database, run the following command in the `resources/database/dump` folder:
 
 ```bash
 mongorestore dump
 ```
 
-### Manual import
+### Manual import with MongoDB Compass
 
 Alternatively, you can create the `ycyw` database and import the JSON collection located in `resources/database/collections`.
 
 ## How to Use the POC
 
-### As an client
+### As a client (with the imported data)
+After importing the dump or the collections, you can directly go to the URL to be redirected to the chat.
+Open your browser and go to `http://localhost:4200/chat/682f25d810f7723e6faab288`.
+
+   ![Client home page](./resources/images/chat_client_with_data.png)
+
+
+### As a client (without data import)
+Open your browser and go to the following address: [http://localhost:4200/](http://localhost:4200/)
 
 1. Open your browser and go to `http://localhost:4200/`.
 
    ![Client home page](./resources/images/chat_client_home.png)
 
-2. Click on **Démarrer une conversation**.
+1. Click on **Démarrer une conversation**.
 
    You will be redirected to the client chat interface:
 
    ![Client chat](./resources/images/chat_client.png)
+
 
 ### As an support employee
 
