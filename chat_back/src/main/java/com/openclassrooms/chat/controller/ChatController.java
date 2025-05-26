@@ -3,6 +3,7 @@ package com.openclassrooms.chat.controller;
 import java.util.List;
 import java.util.Date;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -63,7 +64,7 @@ public class ChatController {
 
     @GetMapping
     public List<Chat> getAllChats() {
-        return chatRepository.findAll();
+        return chatRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt"));
     }
         
 }
